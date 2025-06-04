@@ -1,0 +1,4 @@
+submit pin location:
+  title: 'Submit pin location'
+  description: 'Allow users to drop and submit a pin location.'
+  restrict access: TRUE

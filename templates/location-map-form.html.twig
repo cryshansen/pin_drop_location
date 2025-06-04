@@ -1,0 +1,37 @@
+
+<style>
+/* Ensure the modal appears above the backdrop */
+.modal {
+  z-index: 1055; /* Bootstrap's modal default z-index */
+}
+
+/* Ensure the backdrop has a lower z-index */
+.modal-backdrop {
+  z-index: 1050; /* Bootstrap's modal backdrop default z-index */
+}
+</style>
+<div class="location-form-wrapper">
+  {{ form|raw }}
+</div>
+
+ <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="welcomeModalLabel">Welcome to my modal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Welcome to the location form! 
+          Please enter latitude and longitude to see the map.
+          
+          This modal is hidden because the backdrop is placed 4+ times and the modal is behind them i believe. 
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>

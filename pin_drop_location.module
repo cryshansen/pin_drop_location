@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Pin Drop Location module's procedural hooks and functions.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function pin_drop_location_theme() {
+  return [
+    'google_map' => [
+      'render element' => 'elements',
+      'template' => 'google-map', // Name of the Twig file (without .html.twig).
+      'description' => 'Google Map',
+      'base hook' => 'page', // Optional, to extend base themes.
+      'variables' => [
+        'api_key' => NULL,
+        'lat' => NULL,
+        'lng' => NULL,
+      ],
+    ],
+    'google_map_form' => [
+      'render element' => 'elements',
+      'template' => 'google-map', // This references `google-map.html.twig`.
+      'variables' => [
+        'api_key' => NULL,
+        'lat' => NULL,
+        'lng' => NULL,
+      ],
+    ], 
+    'location_map_form' => [
+      'variables' => [],
+      'template' => 'location-map-form',
+    ], 
+    'modal_example_page' => [
+      'variables' => [], // Add any variables you want to pass to the template.
+      'template' => 'modal-example-page', // This corresponds to the Twig file name without the `.html.twig` extension.
+    ],
+    
+  ];
+
+
+
+}
+/**
+ TBD possible usagee for page route 
+  pin_drop_location.map_page:
+  path: '/pin-location-page'
+*
+*/
+function pin_drop_location_preprocess_page(array &$variables) {
+  if (\Drupal::routeMatch()->getRouteName() === 'google_map_page') {
+    $variables['content']['google_map'] = [
+      '#theme' => 'google_map',
+    ];
+  }
+
+  $variables['modal_html'] = '<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                   <div class="modal-content">
+                                     <div class="modal-header">
+                                       <h5 class="modal-title" id="welcomeModalLabel">Welcome</h5>
+                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                     </div>
+                                     <div class="modal-body">
+                                       Welcome to the location form! Please enter latitude and longitude to see the map.
+                                     </div>
+                                     <div class="modal-footer">
+                                       <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                                     </div>
+                                   </div>
+                                 </div>
+                               </div>';
+
+  // This ensures that the modal HTML is available in the page template.
+}
+

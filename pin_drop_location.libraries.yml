@@ -1,0 +1,47 @@
+google_map:
+  version: 1.1.14
+  js:
+    js/google_map.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+  # Note: We won’t directly include the API URL here anymore.
+google_map_pin:
+  js:
+    js/g_map.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+google_map_form:
+  js:
+    js/map_pin.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+google_maps:
+  js:
+    https://maps.googleapis.com/maps/api/js?key=AIzaSyBSXa3AhfDfHewHqNU73yBuhjW-80SBfNk: {}
+    js/custom_location.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+bootstrap_and_modal:
+  css:
+   theme:
+      https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js: {}
+    js/modal_trigger.js: {}
+  dependencies:
+    - core/jquery
+modal_example:
+  css:
+    theme:
+      https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js: {}
+  dependencies:
+    - core/jquery

@@ -1,0 +1,54 @@
+<?php
+use Drupal\Core\Database\SchemaObject;
+
+/**
+ * Implements hook_schema().
+ */
+function pin_drop_location_schema() {
+  $schema['pin_drop_location'] = [
+    'description' => 'Stores pin drop locations.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'lat' => [
+        'type' => 'float',
+        'not null' => TRUE,
+        'size' => 'normal',
+        'description' => 'Latitude of the pin drop location.',
+      ],
+      'lng' => [
+        'type' => 'float',
+        'not null' => TRUE,
+        'size' => 'normal',
+        'description' => 'Longitude of the pin drop location.',
+      ],
+      'email' => [
+        'description' => 'User Email ID of personal pins or admin for open public form. "Try it".',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'reference' => [
+        'description' => 'Reference text for the pin usage. Pin idea or reference of the location.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'imageid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'File ID of the uploaded image.',
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Timestamp of the pin drop.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

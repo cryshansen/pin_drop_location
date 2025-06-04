@@ -1,0 +1,5 @@
+name: 'Pin Drop Location'
+type: module
+description: 'A module to accept a pin drop your location onn google maps and store it in the database for photography or see again later.'
+core_version_requirement: ^9 || ^10
+package: Pinmento Custom

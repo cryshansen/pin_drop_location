@@ -1,0 +1,67 @@
+pin_drop_location.map_page:
+  path: '/pin-location-page'
+  defaults:
+    _controller: '\Drupal\pin_drop_location\Controller\PinDropLocationController::mapPage'
+    _title: 'Auto Drop a Pin of Your Location'
+  requirements:
+    _permission: 'submit pin location'
+pin_drop_location.map_form:
+  path: '/pin-location-form'
+  defaults:
+    _form: '\Drupal\pin_drop_location\Form\PinDropLocationForm'
+    _title: 'Auto Drop Pin Records Location Form'
+  requirements:
+    _permission: 'submit pin location'
+pin_drop_location.google_map_page:
+  path: '/pin-drop-location'
+  defaults:
+    _controller: '\Drupal\pin_drop_location\Controller\PinDropLocationController::mapPage'
+    _title: 'Google Map Auto Drops a Pin'
+  requirements:
+    _permission: 'submit pin location'
+pin_drop_location.config_form:
+  path: '/admin/config/pin-drop-location/settings' #server  customization so maps work without location. aka manual override.
+  defaults:
+    _form: '\Drupal\pin_drop_location\Form\PinDropLocationConfigForm'
+    _title: 'Pin Drop Handle no Location Settings'
+  requirements:
+    _permission: 'administer site configuration'
+pin_drop_location.google_map: # Route name, should be unique within your module.
+  path: '/pin-drop-location/google-maps' # The URL path users will visit.
+  defaults:
+    _controller: '\Drupal\pin_drop_location\Controller\GoogleMapController::displayMap' # Points to the controller and method to handle the request.
+    _title: 'Google Map from Google Map Controller Display Map' # The title of the page that will appear in the browser.
+  requirements:
+    _permission: 'access content' # Permission required to access the route (for authenticated users).
+pin_drop_location.form:
+  path: '/pin-location-text-form' # the form for customizations to a location for a user
+  defaults:
+    _title: 'Customize a Location Form'
+    _form: '\Drupal\pin_drop_location\Form\LocationForm'
+  requirements:
+    _permission: 'access content'
+pin_drop_location.location_map_form:
+  path: '/custom-location' #/custom-location this is a modal that breaks the screen as it is embedded in the wrong spot
+  defaults:
+    _title: 'Customized Popup Modal Broken theme'
+    _form: '\Drupal\pin_drop_location\Form\LocationMapForm'
+  requirements:
+    _permission: 'access content'
+pin_drop_location.modal_page: 
+  path: '/pin-drop-location/modal' # this is the working module that can be cancelled. however the menu is somehow disabled after except for home tbd. todo
+  defaults:
+    _controller: '\Drupal\pin_drop_location\Controller\ModalController::modalPage'
+    _title: 'This Page Level Represents Modal Example '
+  requirements:
+    _permission: 'access content'
+pin_drop_location.recent_pins:
+  path: '/recent-pins'
+  defaults:
+    _controller: '\Drupal\pin_drop_location\Controller\PinDropLocationController::recentPinsPage'
+    _title: 'Recent Pins'
+  requirements:
+    _permission: 'access content'
+
+
+
+

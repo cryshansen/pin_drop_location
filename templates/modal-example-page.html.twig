@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    {{ attach_library('pin_drop_location/modal_example') }}
+  </head>
+  <body>
+    <div class="container">
+      <!-- Page content here -->
+      <h1>Welcome to the Location Form</h1>
+      <p>This page operates as a non-tracking page for anonymity in using the website. While this site requires login in order to function.</p>
+      <p>Please select your country location</p>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="welcomeModalLabel">Welcome to the anonomous location form!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                  Please select your country, city, or postal location for a more precise location. This page is used when a user decides not to allow location services. 
+                  Todo: set up a page slide of questions before rendering the page. 
+                  <!-- put form fields here for country ajax city -->
+                  <form>
+                  <input type="text" placeholder="enter a country, city or postal code">
+                  <div id="suggestions">Show up like the postal suggestions do.</div>
+                  </form>
+                  <p>This section will require a carousel style entry then exist to see the map in the page. </p>
+                  <p>Form will render here in a bootstrap tab carousel feel,using javascript advancement through the tabs</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trigger JavaScript to show the modal -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+        modal.show();
+      });
+    </script>
+  </body>
+</html>
